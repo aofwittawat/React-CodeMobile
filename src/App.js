@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import CounterClassComponent from "./CounterClassComponent";
+import CounterFunctionalComponent from "./CounterFunctionalComponent";
+import Ex1style from "./components/ex1_style";
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>{count}</h1>
+      <button
+        onClick={() => {
+          setCount(count + 1);
+          console.log(count);
+        }}
+      >
+        ADD
+      </button>
+      <CounterClassComponent />
+      <CounterFunctionalComponent />
+      <Ex1style />
     </div>
   );
-}
+};
 
 export default App;
